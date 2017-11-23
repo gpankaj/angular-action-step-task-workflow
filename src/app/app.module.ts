@@ -11,6 +11,10 @@ import {MatCardModule} from '@angular/material/card';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import {MatToolbarModule} from '@angular/material/toolbar';
+
 
 @NgModule({
     declarations: [
@@ -26,7 +30,10 @@ import {MatTabsModule} from '@angular/material/tabs';
         MatIconModule,
         MatCardModule,
         MatTabsModule,
-        AppRoutingModule
+        AppRoutingModule,
+        MatSidenavModule,
+        MatListModule,
+        MatToolbarModule
     ],
     providers: [],
     bootstrap: [AppComponent]
