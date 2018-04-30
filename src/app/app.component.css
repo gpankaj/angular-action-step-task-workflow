@@ -1,8 +1,25 @@
 
->>> body {
+body {
     margin: 0;
 }
 
 main {
     margin: 30px;
 }
+
+mat-sidenav {
+  width: 400px;
+  margin-top: 65px;
+}
+
+.right-side-bar {
+
+  width: 200px; /* Set the width of the sidebar */
+  padding-top: 20px;
+}
+
+.menu-active {
+  background-color: #f44336;
+  padding: 30px;
+} /* Red */
+

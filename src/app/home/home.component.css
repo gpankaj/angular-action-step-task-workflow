@@ -1,7 +1,10 @@
 
 
 .courses-panel {
-    max-width: 400px;
+    max-width: 40%;
     margin: 0 auto;
 }
 
+.tab{
+  max-width: 100%;
+}

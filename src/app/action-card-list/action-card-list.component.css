@@ -1,0 +1,18 @@
+.action-card{
+  margin: 20px 10px;
+  max-width: 400px;
+}
+
+.actions-action{
+  text-align: center;
+
+}
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.green{
+  background-color: lightgreen;
+}

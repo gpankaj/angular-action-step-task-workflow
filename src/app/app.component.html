@@ -1,5 +1,226 @@
 
 
+
 <main>
+  <h1>HOME PAGE</h1>
     <router-outlet></router-outlet>
 </main>
+
+<mat-sidenav-container fullscreen *ngIf="first">
+
+
+
+  <mat-sidenav #action  position="end" class="right-side-bar">
+
+    <mat-nav-list style="margin-left: 20px;text-align: center">
+
+      <mat-tab-group>
+
+        <mat-tab label="Basic">
+
+          <mat-form-field>
+            <input matInput placeholder="name">
+          </mat-form-field>
+
+          <mat-form-field>
+            <textarea matInput placeholder="Textarea"></textarea>
+          </mat-form-field>
+
+
+        </mat-tab>
+
+        <mat-tab label="Advanced">
+
+
+
+
+        </mat-tab>
+
+      </mat-tab-group>
+
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+
+
+
+  <mat-toolbar color="primary">
+
+    <button mat-icon-button (click)="action.open()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+
+
+      <button mat-button routerLink="/">
+        <mat-icon style="margin: 20px;">home</mat-icon>
+        {{title}}</button>
+
+      <!-- This fills the remaining space of the current row -->
+      <span class="fill-remaining-space"></span>
+      <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+
+        <button style="margin: 40px;" mat-button routerLink="/actions"><mat-icon>movie</mat-icon>Actions</button>
+
+
+        <button style="margin: 40px;" mat-button routerLink="/steps"><mat-icon>linear_scale</mat-icon>Steps</button>
+        <button style="margin: 40px;" mat-button routerLink="/tasks"><mat-icon>format_list_numbered</mat-icon>Tasks</button>
+        <button style="margin: 40px;" mat-button routerLink="/workflows"><mat-icon>work</mat-icon>Workflow</button>
+      </div>
+
+      <div fxLayout="row" fxShow="false" fxShow.gt-sm style="margin-left: auto;">
+        <button style="margin: 20px;" mat-button routerLink="/logout"><mat-icon>lock outline</mat-icon>Logout</button>
+
+
+        <button style="margin: 20px;" mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
+          <mat-icon>menu</mat-icon>
+        </button>
+
+      </div>
+
+
+
+
+    <mat-menu #menu>
+
+      <button mat-menu-item routerLink="about">
+        <mat-icon>question_answer</mat-icon>
+        <span>About</span>
+      </button>
+
+
+
+
+      <button mat-menu-item routerLink="admin">
+        <mat-icon>supervisor_account</mat-icon>
+        <span>Admin</span>
+      </button>
+
+
+      <button mat-menu-item routerLink="help">
+        <mat-icon>help</mat-icon>
+        <span>Help</span>
+      </button>
+
+
+    </mat-menu>
+
+
+  </mat-toolbar>
+
+</mat-sidenav-container>
+
+
+
+
+
+<mat-sidenav-container fullscreen *ngIf="second" fxLayout="row" >
+
+
+  <mat-sidenav #task  position="end">
+    <button (click)="task.close()">CLOSE</button>
+    <mat-nav-list style="margin-left: 20px;text-align: center">
+
+      <mat-tab-group>
+
+        <mat-tab label="Basic">
+
+          <mat-form-field>
+            <input matInput placeholder="name">
+          </mat-form-field>
+
+          <mat-form-field>
+            <textarea matInput placeholder="Textarea"></textarea>
+          </mat-form-field>
+
+
+        </mat-tab>
+
+        <mat-tab label="Advanced">
+
+
+
+
+        </mat-tab>
+
+      </mat-tab-group>
+
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+
+  <mat-sidenav-content>
+
+  <mat-toolbar color="primary">
+
+    <button mat-icon-button (click)="task.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+
+
+
+    <button routerLinkActive="menu-active"  [routerLinkActiveOptions]="{exact:true}" mat-button routerLink="/"><mat-icon>home</mat-icon></button>
+
+    <!-- This fills the remaining space of the current row -->
+    <span class="fill-remaining-space"></span>
+    <div fxLayout="row" fxShow="false" fxShow.gt-sm (click)="task.close()" >
+      <button routerLinkActive="menu-active"  [routerLinkActiveOptions]="{exact:true}" mat-button routerLink="action"><mat-icon>movie</mat-icon>Actions</button>
+
+
+      <button routerLinkActive="menu-active"  [routerLinkActiveOptions]="{exact:true}" mat-button routerLink="step"><mat-icon>linear_scale</mat-icon>Steps</button>
+      <button routerLinkActive="menu-active"  [routerLinkActiveOptions]="{exact:true}" mat-button routerLink="task"><mat-icon>format_list_numbered</mat-icon>Tasks</button>
+      <button routerLinkActive="menu-active"  [routerLinkActiveOptions]="{exact:true}" mat-button routerLink="workflow"><mat-icon>work</mat-icon>Workflow</button>
+    </div>
+
+
+    <div fxLayout="row" fxShow="false" fxShow.gt-sm style="margin-left: auto;" (click)="task.close()" >
+      <button routerLinkActive="menu-active"  [routerLinkActiveOptions]="{exact:true}" mat-button routerLink="/logout"><mat-icon>lock outline</mat-icon>Logout</button>
+
+
+      <button routerLinkActive="menu-active"  [routerLinkActiveOptions]="{exact:true}" mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+      </button>
+
+    </div>
+
+
+
+
+    <mat-menu #menu (click)="task.close()" >
+
+      <button mat-menu-item routerLink="about">
+        <mat-icon>question_answer</mat-icon>
+        <span>About</span>
+      </button>
+
+
+
+
+      <button mat-menu-item routerLink="admin">
+        <mat-icon>supervisor_account</mat-icon>
+        <span>Admin</span>
+      </button>
+
+
+      <button mat-menu-item routerLink="help">
+        <mat-icon>help</mat-icon>
+        <span>Help</span>
+      </button>
+
+
+    </mat-menu>
+
+
+  </mat-toolbar>
+    <div (click)="task.close()" fxFlex>
+
+      <router-outlet></router-outlet>
+
+    </div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
