@@ -2,28 +2,28 @@
 
 <h1>List of Actions</h1>
 
+<div class="flex-container" fxLayout="row" fxLayoutAlign="space-between start">
+  <div style="margin-left: 50px" class="flex-item" >
 <h3>Total: {{(actions)?.length}}</h3>
+  </div>
+  <div style="margin-left: 500px" class="flex-item" >
+    <button color="primary" routerLink="action/new" mat-raised-button >
+      <mat-icon>add</mat-icon>
+      <span>Add New</span>
+    </button>
+  </div>
+    <div style="margin-left: 500px" class="flex-item" >
+  <form>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Search">
+    </mat-form-field>
+
+  </form>
+    </div>
 
 
-<div>
-  <h2 md-dialog-title>MY DIALOG</h2>
-  <hr>
-  <mat-dialog-content>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam maxime cum dolorem officiis assumenda rem alias, omnis nobis nam. Ratione soluta libero architecto cupiditate at fugit consectetur sit dignissimos vitae.
-    <br>
-    <br>
-    <strong>{{data}}</strong>
-  </mat-dialog-content>
-  <hr>
-  <mat-dialog-actions>
-    <button md-raised-button (click)="onCloseConfirm()">CONFIRM</button>&nbsp;
-    <button md-raised-button (click)="onCloseCancel()">CANCEL</button>
-  </mat-dialog-actions>
+
 </div>
-
-
-
-
 <div class="flex-container" fxLayout="row" fxLayoutAlign="space-between start" >
 
 <mat-card *ngFor="let action of actions" class="action-card mat-elevation-z10">
@@ -41,10 +41,14 @@
 
   <mat-card-actions class="actions-action">
 
-    <button mat-button class="mat-raised-button mat-primary" (click)="openDialog()">Edit Action</button>
+    <button mat-button class="mat-raised-button mat-primary" [routerLink]="['/action/action.name']">View Action</button>
+    <button mat-button class="mat-raised-button mat-accent" (click)="editAction(action)">Edit Action</button>
+
+    <button mat-button class="mat-raised-button mat-active">Play Action</button>
 
   </mat-card-actions>
   </div>
 
 </mat-card>
 </div>
+

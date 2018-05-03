@@ -1,0 +1,45 @@
+
+
+
+
+<mat-dialog-content class="example-container" [formGroup]="form" matFormFieldControl>
+
+  <table class="fullwidth" cellspacing="0">
+    <tr>
+      <td>
+        <mat-input-container class="fullwidth">
+
+    <input matInput placeholder="Name of the Action" formControlName="name" value="{{action.name}}">
+
+        </mat-input-container>
+      </td>
+    </tr>
+    <tr>
+      <td>
+
+  <mat-label>Path:</mat-label>
+  <button (click)="fileInput.click()">
+
+    <mat-form-field>
+      <input matInput placeholder="Action Script Path" formControlName="actionScript" value="{{action.action_script}}">
+    </mat-form-field>
+
+    <mat-icon>library_add</mat-icon>
+      <span>Browse</span>
+    <input #fileInput type="file" (change)="onFileInput($event)" style="display:none;" />
+  </button>
+
+      </td>
+
+      <tr>
+    <td>
+  <mat-label>Active:</mat-label>
+
+  <mat-checkbox formControlName="active" [checked]="action.active">Check me!</mat-checkbox>
+    </td>
+
+  </tr>
+  </table>
+
+</mat-dialog-content>
+

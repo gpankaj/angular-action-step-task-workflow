@@ -21,12 +21,27 @@ import { StepCardListComponent } from './step-card-list/step-card-list.component
 import { ActionCardListComponent } from './action-card-list/action-card-list.component';
 import { WorkflowCardListComponent } from './workflow-card-list/workflow-card-list.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material';
+import {MatDatepickerModule, MatInputModule, MatSelectModule} from '@angular/material';
 import {StepService} from './step.service';
 import {ActionService} from './action.service';
 import {TaskService} from './task.service';
 import {WorkflowService} from './workflow.service';
 import {HttpModule} from '@angular/http';
+import { ActionDialogComponent } from './action-dialog/action-dialog.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatMomentDateModule} from '@angular/material-moment-adapter';
+import { SignupComponent } from './signup/signup.component';
+import { ActionNewComponent } from './action-new/action-new.component';
+import {AuthService} from './services/auth.service';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/shareReplay';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/switchMap';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
     declarations: [
@@ -36,9 +51,14 @@ import {HttpModule} from '@angular/http';
         TopMenuComponent,
         TaskCardListComponent,
         StepCardListComponent,
+        WorkflowCardListComponent,
         ActionCardListComponent,
-        WorkflowCardListComponent
+        ActionDialogComponent,
+        SignupComponent,
+        ActionNewComponent
+
     ],
+    entryComponents: [ActionDialogComponent],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
@@ -54,9 +74,18 @@ import {HttpModule} from '@angular/http';
         MatFormFieldModule,
         MatInputModule,
         HttpModule,
-        MatDialogModule
+        MatDialogModule,
+        FormsModule,
+        ReactiveFormsModule,
+        CommonModule,
+        MatSelectModule,
+        MatCheckboxModule,
+        MatDatepickerModule,
+        MatMomentDateModule,
+        HttpClientModule
+
     ],
-    providers: [StepService, ActionService, TaskService, WorkflowService],
+    providers: [StepService, ActionService, TaskService, WorkflowService, AuthService, HttpClient],
     bootstrap: [AppComponent]
 })
 export class AppModule {

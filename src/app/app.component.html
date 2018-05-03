@@ -69,7 +69,11 @@
         <button style="margin: 40px;" mat-button routerLink="/workflows"><mat-icon>work</mat-icon>Workflow</button>
       </div>
 
+
+
+
       <div fxLayout="row" fxShow="false" fxShow.gt-sm style="margin-left: auto;">
+        <button mat-button routerLink="/signup"><mat-icon>assignment ind</mat-icon>Signup</button>
         <button style="margin: 20px;" mat-button routerLink="/logout"><mat-icon>lock outline</mat-icon>Logout</button>
 
 
@@ -177,7 +181,14 @@
 
 
     <div fxLayout="row" fxShow="false" fxShow.gt-sm style="margin-left: auto;" (click)="task.close()" >
-      <button routerLinkActive="menu-active"  [routerLinkActiveOptions]="{exact:true}" mat-button routerLink="/logout"><mat-icon>lock outline</mat-icon>Logout</button>
+
+      <ng-container>
+
+        <button mat-button *ngIf="isLoggedOut$ | async"  routerLink="/signup"><mat-icon>assignment ind</mat-icon>Signup</button>
+        <button routerLinkActive="menu-active"  *ngIf="isLoggedIn$ | async" [routerLinkActiveOptions]="{exact:true}" mat-button routerLink="/logout"><mat-icon>lock outline</mat-icon>Logout</button>
+        <button routerLinkActive="menu-active"  *ngIf="isLoggedOut$ | async" [routerLinkActiveOptions]="{exact:true}" mat-button routerLink="/login"><mat-icon>lock outline</mat-icon>Login</button>
+
+      </ng-container>
 
 
       <button routerLinkActive="menu-active"  [routerLinkActiveOptions]="{exact:true}" mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>

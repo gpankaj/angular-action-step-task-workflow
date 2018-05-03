@@ -1,0 +1,31 @@
+<form [formGroup]="form" autocomplete="off" novalidate class="col-md-6 col-md-offset-3">
+
+  <fieldset>
+    <legend>SignUp</legend>
+
+    <div class="form-field">
+      <label>username:</label>
+      <input name="username" formControlName="username">
+    </div>
+
+    <div class="form-field">
+      <label>Password:</label>
+      <input name="password" formControlName="password" type="password">
+    </div>
+
+
+    <div class="form-field">
+      <label>Confirm:</label>
+      <input name="confirm" formControlName="confirm" type="password">
+    </div>
+
+  </fieldset>
+
+  <div class="form-buttons">
+      <button class="button button-primary" (click)="signUp()">SignUp!</button>
+  </div>
+</form>
+
+<div class="debug">
+  {{user|json}}
+</div>

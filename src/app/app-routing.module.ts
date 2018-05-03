@@ -6,12 +6,18 @@ import {ActionCardListComponent} from './action-card-list/action-card-list.compo
 import {TaskCardListComponent} from './task-card-list/task-card-list.component';
 import {StepCardListComponent} from './step-card-list/step-card-list.component';
 import {WorkflowCardListComponent} from './workflow-card-list/workflow-card-list.component';
+import {SignupComponent} from './signup/signup.component';
+import {ActionNewComponent} from './action-new/action-new.component';
 
 const routes: Routes = [
 
     {
         path: 'action',
         component: ActionCardListComponent
+    },
+    {
+      path: 'action/create',
+      component: ActionNewComponent
     },
     {
         path: 'action/:id',
@@ -44,6 +50,10 @@ const routes: Routes = [
     {
         path: 'about',
         component: AboutComponent
+    },
+    {
+      path: 'signup',
+      component: SignupComponent
     },
     {
         path: '**',
